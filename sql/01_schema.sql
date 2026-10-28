@@ -5,7 +5,7 @@ SELECT PostGIS_Full_Version();
 --Builds the base 3 tables :
 -- qa_rules : dictionary of rules - new rule will be just new line in 
 -- qa_runs - log of runs: when control was run, which layer and result
--- qa_results - results: wchich object break the whenewer rules, wich run it was
+-- qa_results - results: which object breaks which rule, in which run
 DROP TABLE IF EXISTS qa_results;
 DROP TABLE IF EXISTS qa_runs;
 DROP TABLE IF EXISTS qa_rules;
@@ -37,4 +37,13 @@ CREATE TABLE qa_results(
 	feature_id  varchar(50) NOT NULL,
 	detail		varchar(200),
 	created_at  timestamp NOT NULL DEFAULT now()
-)
+);
+
+--First control insert
+INSERT INTO qa_rules (rule_name, description, severity, target_layer)
+VALUES (
+    'incorrect_geometry_checker',
+    'Rule checking a correction of geometry; finding inappropriate geometry',
+    'error',
+    NULL  
+);
