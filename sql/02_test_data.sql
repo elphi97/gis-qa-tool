@@ -18,7 +18,7 @@ VALUES (
 INSERT INTO test_parcels (parcel_name, geom)
 VALUES (
 	'bad_hole_parcel',
-	ST_GeomFromText('POLYGON((0 40, 10 40, 10 50, 0 50, 0 40), (5 45, 15 45, 15 55, 5 55, 5 45))', 2180)
+	
 );
 
 INSERT INTO test_parcels (parcel_name, geom)
@@ -28,5 +28,5 @@ VALUES (
 );
 
 
-SELECT parcel_id, parcel_name, ST_IsValid(geom), ST_IsValidReason(geom)
+SELECT parcel_id, parcel_name, ST_IsValid(geom), ST_IsValidReason(geom)ST_GeomFromText('POLYGON((0 40, 10 40, 10 50, 0 50, 0 40), (5 45, 15 45, 15 55, 5 55, 5 45))', 2180)
 FROM test_parcels;
