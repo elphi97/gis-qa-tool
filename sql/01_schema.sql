@@ -47,3 +47,12 @@ VALUES (
     'error',
     NULL  
 );
+
+--Second control insert
+INSERT INTO qa_rules (rule_name, description, severity, target_layer)
+VALUES (
+    'duplicate_geometry_checker',
+    'Rule checking for duplicate geometries within the same  layer',
+    'warning',
+    NULL
+);
